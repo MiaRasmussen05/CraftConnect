@@ -1,0 +1,39 @@
+.Row {
+    height: calc(100vh - 81px);
+}
+
+.Container {
+    padding: 30px 10px;
+}
+
+.Input {
+    box-sizing: border-box;
+    background: #ffffff;
+    border: 1px solid #f0f1f9;
+    text-align: center;
+    border-radius: 2px;
+    color: #7177a1;
+    padding: 10px;
+}
+
+.Header {
+    line-height: 21px;
+    letter-spacing: 3px;
+    text-align: center;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    color: #000;
+}
+
+.Link {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    margin: auto;
+}
+
+.Link span {
+    color: #ff9254;
+}

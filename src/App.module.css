@@ -30,6 +30,32 @@ i:hover {
   cursor: pointer;
   transition: color ease-in-out 0.2s;
 }
+
 .Main {
   padding-top: 120px;
+}
+
+.Content {
+  background-color: #ffffff;
+  border: 1px solid #c7c7cc;
+  border-radius: 2px;
+  padding: 12px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+/* scrollbar */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+*::-webkit-scrollbar-thumb {
+  background: #888;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
