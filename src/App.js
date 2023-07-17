@@ -8,20 +8,16 @@ import SignInForm from "./pages/auth/SignInForm";
 
 function App() {
   return (
-    <CurrentUserContext.Provider value={currentUser}>
-      <SetCurrentUserContext.Provider value={setCurrentUser}>
-        <div className={styles.App}>
-          <NavBar />
-          <Container className={styles.Main}>
-            <Switch>
-              <Route exact path="/" render={() => <h1>Home page</h1>} />
-              <Route exact path="/signin" render={() => <SignInForm />} />
-              <Route exact path="/signup" render={() => <SignUpForm />} />
-            </Switch>
-          </Container>
-        </div>
-      </SetCurrentUserContext.Provider>
-    </CurrentUserContext.Provider>
+    <div className={styles.App}>
+      <NavBar />
+      <Container className={styles.Main}>
+        <Switch>
+          <Route exact path="/" render={() => <h1>Home page</h1>} />
+          <Route exact path="/signin" render={() => <SignInForm />} />
+          <Route exact path="/signup" render={() => <SignUpForm />} />
+        </Switch>
+      </Container>
+    </div>
   );
 }
 
