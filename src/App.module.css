@@ -39,7 +39,6 @@ i:hover {
   background-color: #ffffff;
   border: 1px solid #c7c7cc;
   border-radius: 2px;
-  padding: 12px;
 }
 
 input[type="file"] {
@@ -58,4 +57,10 @@ input[type="file"] {
 }
 *::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.Image {
+  max-width: 100%;
+  max-height: 40vh;
+  object-fit: contain;
 }

@@ -31,3 +31,15 @@
     width: 100%;
     padding: 10px 50px;
 }
+
+.Blue {
+  background-color: #008080;
+  color: #ffffff;
+  border: 2px solid #008080;
+}
+
+.Blue:hover {
+  background-color: #ffffff;
+  color: #008080;
+  border: 2px solid #008080;
+}
