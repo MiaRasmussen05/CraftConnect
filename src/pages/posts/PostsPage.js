@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 
 import Post from "./Post";
 import Asset from "../../components/Asset";
+import PopularProfiles from "../profiles/PopularProfiles";
 
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
@@ -86,7 +87,7 @@ function PostsPage({ message, filter = "" }) {
         )}
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <p>Popular profiles for desktop</p>
+        <PopularProfiles />
       </Col>
     </Row>
   );
