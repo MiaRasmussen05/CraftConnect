@@ -32,13 +32,13 @@
     padding: 10px 50px;
 }
 
-.Blue {
+.Blue, .Unfollow:hover {
   background-color: #008080;
   color: #ffffff;
   border: 2px solid #008080;
 }
 
-.Blue:hover {
+.Blue:hover, .Unfollow {
   background-color: #ffffff;
   color: #008080;
   border: 2px solid #008080;
