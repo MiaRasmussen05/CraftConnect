@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import backgroundSplatter from "../../assets/backgroundSplatter.png";
 
 import { Form, Button, Col, Row, Container, Alert } from "react-bootstrap";
 import axios from "axios";
@@ -39,9 +40,12 @@ const SignUpForm = () => {
   };
 
   return (
-    <Row className={styles.Row}>
-      <Col className="m-auto py-2 p-md-1" md={7}>
-        <h1 className="text-center">Welcome to CraftHub</h1>
+    <Row className={`${styles.Row} ${styles.AuthContainer}`}>
+      <img className={`${styles.ImageBackground} d-none d-lg-block`} src={backgroundSplatter} 
+        alt="Background of paint splatters" 
+      />
+      <Col className={`${styles.AuthForm} mx-auto py-2 p-md-1`} md={7}>
+        <h1 className="text-center mt-5">Welcome to CraftHub</h1>
         <p className="text-center">Connect - Share - Inspire</p>
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>sign up</h1>

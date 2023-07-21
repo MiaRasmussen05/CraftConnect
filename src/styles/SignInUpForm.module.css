@@ -37,3 +37,23 @@
 .Link span {
     color: #ff9254;
 }
+
+.AuthForm {
+    margin-top: 170px;
+}
+
+@media screen and (min-width: 991px) {
+    .AuthContainer {
+        height: 100vh;
+        overflow: hidden;
+    }
+      
+    .ImageBackground {
+        width: 100%;
+        height: 90vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+    }
+}

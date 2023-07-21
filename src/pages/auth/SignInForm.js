@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import backgroundSplatter from "../../assets/backgroundSplatter.png";
 
 import { Link, useHistory } from "react-router-dom";
 
@@ -47,9 +48,12 @@ function SignInForm() {
         });
     };
     return (
-        <Row className={styles.Row}>
-            <Col className="m-auto py-2 p-md-1" md={7}>
-                <h1 className="text-center">CraftHub</h1>
+        <Row className={`${styles.Row} ${styles.AuthContainer}`}>
+            <img className={`${styles.ImageBackground} d-none d-lg-block`} src={backgroundSplatter} 
+              alt="Background of paint splatters" 
+            />
+            <Col className={`${styles.AuthForm} mx-auto py-2 p-md-1`} md={7}>
+                <h1 className="text-center mt-5">CraftHub</h1>
                 <p className="text-center">Share your ideas, connect with others!</p>
                 <Container className={`${appStyles.Content} p-4 `}>
                     <h1 className={styles.Header}>login</h1>
