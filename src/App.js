@@ -14,6 +14,8 @@ import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
+import TasksPage from "./pages/tasks/TasksPage";
+
 
 function App() {
   const currentUser = useCurrentUser();
@@ -35,6 +37,7 @@ function App() {
               />
             )}
           />
+          <Route exact path="/tasks" render={() => <TasksPage />} />
           <Route exact path="/liked" render={() => (
               <PostsPage
                 message="No results found. Adjust the search keyword or like a post."
