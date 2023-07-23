@@ -1,0 +1,10 @@
+.AddBtn {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.Input {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-right: 0px;
+}

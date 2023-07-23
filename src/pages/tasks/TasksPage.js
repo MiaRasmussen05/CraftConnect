@@ -1,18 +1,19 @@
 import React from "react";
 
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
+import { Col, Row, Container } from "react-bootstrap";
+import TaskCreateForm from "../tasks/TaskCreateForm";
 
 
-function TasksPage() {
+function TaskPage() {
 
   return (
     <Row className="h-100">
-      <Col className="mx-auto py-2 p-0 p-lg-2 mt-5" lg={1}>
-        <p>Ideas</p>
+      <Col className="mx-auto py-2 p-0 p-lg-2 mt-5" lg={6}>
+        <Container>
+          <TaskCreateForm />
+        </Container>
       </Col>
     </Row>
   );
 }
-
-export default TasksPage;
+export default TaskPage;
