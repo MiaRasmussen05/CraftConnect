@@ -15,6 +15,7 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import TasksPage from "./pages/tasks/TasksPage";
+import EventsPage from "./pages/events/EventsPage";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
             )}
           />
           <Route exact path="/tasks" render={() => <TasksPage />} />
+          <Route exact path="/events" render={() => <EventsPage />} />
           <Route exact path="/liked" render={() => (
               <PostsPage
                 message="No results found. Adjust the search keyword or like a post."
