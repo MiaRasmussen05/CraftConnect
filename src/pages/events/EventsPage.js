@@ -1,13 +1,15 @@
 import React from "react";
-import { Row } from "react-bootstrap";
+import { Container } from "react-bootstrap"
+import EventCreateForm from "../events/EventCreateForm"
 
 
 function EventsPage() {
 
   return (
-    <Row className="h-100">
+    <Container>
+      <EventCreateForm />
 
-    </Row>
+    </Container>
   );
 }
 
