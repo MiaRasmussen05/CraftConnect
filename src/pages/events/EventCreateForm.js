@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 
-import { Form, Button, Row, Col, Container, Image } from "react-bootstrap";
+import { Form, Button, Row, Col, Container, Alert, Image } from "react-bootstrap";
 
 import upload from "../../assets/upload.png";
 
@@ -14,19 +14,19 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 function EventCreateForm() {
 
-  const [setErrors] = useState({});
+  const [errors, setErrors] = useState({});
 
   const [eventData, setEventData] = useState({
     name: "",
     description: "",
-    start_date: "",
-    end_date: "",
+    start_date_time: "",
+    end_date_time: "",
     location: "",
     website_link: "",
-    cost: "",
+    cost: 0,
     image: ""
   });
-  const { name, description, start_date, end_date,
+  const { name, description, start_date_time, end_date_time,
       location, website_link, cost, image } = eventData;
     
   const imageInput = useRef(null);
@@ -55,7 +55,8 @@ function EventCreateForm() {
 
     formData.append("name", name);
     formData.append("description", description);
-    formData.append("end_date", end_date);
+    formData.append("start_date_time", start_date_time);
+    formData.append("end_date_time", end_date_time);
     formData.append("location", location);
     formData.append("website_link", website_link);
     formData.append("cost", cost);
@@ -73,50 +74,86 @@ function EventCreateForm() {
   };
 
   const textFields = (
-    <div className="text-center p-3">
-      <Form.Group>
+    <Container className="text-center p-3">
+      <Form.Group controlId="name">
         <Form.Label>Title</Form.Label>
         <Form.Control
           type="text" name="name"
           value={name} onChange={handleChange}
         />
       </Form.Group>
-      <Form.Group>
+      {errors?.name?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group controlId="name">
         <Form.Label>Description</Form.Label>
         <Form.Control
           as="textarea" rows={6} name="description"
           value={description} onChange={handleChange}
         />
       </Form.Group>
-      <Form.Group>
+      {errors?.description?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group controlId="start_date_time">
         <Form.Label>Start date</Form.Label>
         <Form.Control
-          type="datetime-local" rows={6} name="start_date"
-          value={start_date} onChange={handleChange}
+          type="datetime-local" rows={6} name="start_date_time"
+          value={start_date_time} onChange={handleChange}
         />
       </Form.Group>
-      <Form.Group>
+      {errors?.start_date_time?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group controlId="end_date_time">
         <Form.Label>End date</Form.Label>
         <Form.Control
-          type="datetime-local" rows={6} name="end_date"
-          value={end_date} onChange={handleChange}
+          type="datetime-local" rows={6} name="end_date_time"
+          value={end_date_time} onChange={handleChange}
         />
       </Form.Group>
-      <Form.Group>
+      {errors?.end_date_time?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group controlId="location">
         <Form.Label>Location</Form.Label>
         <Form.Control
           type="text" name="location"
           value={location} onChange={handleChange}
         />
       </Form.Group>
-      <Form.Group>
+      {errors?.location?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group controlId="website_link">
         <Form.Label>Website</Form.Label>
         <Form.Control
           type="url" name="website_link"
           value={website_link} onChange={handleChange}
         />
       </Form.Group>
-      <Form.Group>
+      {errors?.website_link?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group controlId="cost">
         <Form.Label>Cost</Form.Label>
         <Form.Control
           type="number" name="cost"
@@ -124,6 +161,11 @@ function EventCreateForm() {
           min="0"
         />
       </Form.Group>
+      {errors?.cost?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit"
@@ -134,7 +176,7 @@ function EventCreateForm() {
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
         create
       </Button>
-    </div>
+    </Container>
   );
 
   return (
@@ -175,9 +217,15 @@ function EventCreateForm() {
 
               <Form.File
                 id="image-upload" accept="image/*" 
-                onChange={handleChangeImage}
+                onChange={handleChangeImage} ref={imageInput}
               />
             </Form.Group>
+            {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
+
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
