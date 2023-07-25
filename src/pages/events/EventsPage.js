@@ -32,14 +32,14 @@ function EventsPage({ message = "" }) {
 
 
   return (
-    <Row>
-      <Col className="py-2 p-0 p-lg-2" lg={12}>
-        <Container>
-          <EventCreateForm />
-        </Container>
-      </Col>
-      <Container>
-        <Col className=" p-0 p-lg-2">
+    <Container>
+      <Row>
+        <Col className="py-2 p-0 p-lg-2" lg={12}>
+            <EventCreateForm />
+        </Col>
+      </Row>
+      <Row>
+        <Col className=" p-0 p-lg-2" lg={4}>
         {hasLoaded ? (
           <>
             {events.results.length ? (
@@ -58,8 +58,8 @@ function EventsPage({ message = "" }) {
           </Container>
         )}
         </Col>
-      </Container>
-    </Row>
+      </Row>
+    </Container>
   );
 }
 

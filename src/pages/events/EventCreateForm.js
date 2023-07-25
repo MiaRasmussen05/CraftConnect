@@ -21,13 +21,13 @@ function EventCreateForm() {
     description: "",
     start_date_time: "",
     end_date_time: "",
-    location: "",
+    location: "Unknown",
     website_link: "",
     cost: 0,
-    image: ""
+    cover_image: ""
   });
   const { name, description, start_date_time, end_date_time,
-      location, website_link, cost, image } = eventData;
+      location, website_link, cost, cover_image } = eventData;
     
   const imageInput = useRef(null);
   const history = useHistory();
@@ -41,10 +41,10 @@ function EventCreateForm() {
 
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
-      URL.revokeObjectURL(image);
+      URL.revokeObjectURL(cover_image);
       setEventData({
           ...eventData,
-          image: URL.createObjectURL(event.target.files[0]),
+          cover_image: URL.createObjectURL(event.target.files[0]),
       });
     } 
   };
@@ -60,7 +60,7 @@ function EventCreateForm() {
     formData.append("location", location);
     formData.append("website_link", website_link);
     formData.append("cost", cost);
-    formData.append("image", imageInput.current.files[0]);
+    formData.append("cover_image", imageInput.current.files[0]);
 
     try {
       const { data } = await axiosReq.post("/events/", formData);
@@ -190,10 +190,10 @@ function EventCreateForm() {
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center p-md-5`}
           >
             <Form.Group className="text-center">
-              {image ? (
+              {cover_image ? (
                 <>
                   <figure>
-                    <Image className={appStyles.Image} src={image} rounded />
+                    <Image className={appStyles.Image} src={cover_image} rounded />
                   </figure>
                   <div>
                     <Form.Label
