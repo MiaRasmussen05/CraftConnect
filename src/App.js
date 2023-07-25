@@ -16,6 +16,7 @@ import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import TasksPage from "./pages/tasks/TasksPage";
 import EventsPage from "./pages/events/EventsPage";
+import EventPage from "./pages/events/EventPage";
 
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
           <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />} />
           <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />} />
           <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
+          <Route exact path="/events/:id" render={() => <EventPage />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
