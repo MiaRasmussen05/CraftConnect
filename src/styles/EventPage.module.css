@@ -1,0 +1,24 @@
+.CardSize {
+    min-height: 520px;
+    max-height: 520px;
+}
+
+.CardSize Img {
+    min-height: 250px;
+    max-height: 250px;
+}
+
+.Description {
+    max-width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.EventFontSize, .EventFontSize i {
+    font-size: 15px;
+}
+
+.EventFontSize i {
+    margin-bottom: 4px;
+}

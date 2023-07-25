@@ -39,12 +39,13 @@ function EventsPage({ message = "" }) {
         </Col>
       </Row>
       <Row>
-        <Col className=" p-0 p-lg-2" lg={4}>
         {hasLoaded ? (
           <>
             {events.results.length ? (
               events.results.map((event) => (
-                <Event key={event.id} {...event} setEvents={setEvents} />
+                <Col key={event.id} className="p-0 p-lg-2" lg={4}>
+                  <Event {...event} setEvents={setEvents} />
+                </Col>
               ))
             ) : (
               <Container className={appStyles.Content}>
@@ -57,7 +58,6 @@ function EventsPage({ message = "" }) {
             <Asset spinner />
           </Container>
         )}
-        </Col>
       </Row>
     </Container>
   );
