@@ -1,9 +1,11 @@
 import React from "react";
 import { Card, Badge } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import eventStyle from "../../styles/EventPage.module.css"
 
 const Event = (props) => {
   const {
+    id,
     cover_image,
     name,
     description,
@@ -40,7 +42,9 @@ const Event = (props) => {
 
   return (
     <Card className={`${eventStyle.CardSize} mb-3`}>
-      <Card.Img variant="top" src={cover_image} alt={name} />
+      <Link to={`/events/${id}`}>
+        <Card.Img variant="top" src={cover_image} alt={name} />
+      </Link>
       <Card.Body>
         {name && <Card.Title>{name} {timeDifferenceInDays <= 5 && (
           <Badge variant="info" className="ml-2">New</Badge>
