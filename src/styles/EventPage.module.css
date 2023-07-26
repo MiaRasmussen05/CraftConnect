@@ -1,6 +1,6 @@
 .CardSize {
-    min-height: 520px;
-    max-height: 520px;
+    min-height: 530px;
+    max-height: 530px;
 }
 
 .CardSize Img {
@@ -8,16 +8,24 @@
     max-height: 250px;
 }
 
-.Title i {
+.Title i, .JoinCount {
     float: right;
     padding: 0 5px;
 }
 
-.Description {
+.Description, .Title {
     max-width: 100%;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+}
+
+.Name {
+    max-width: 60%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-flex;
 }
 
 .EventFontSize, .EventFontSize i {
@@ -26,4 +34,16 @@
 
 .EventFontSize i {
     margin-bottom: 4px;
+}
+
+.Join {
+    color: #008080;
+}
+  
+.Join:hover {
+    color: #008080;
+}
+  
+.JoinOutline:hover {
+    color: #008080;
 }

@@ -1,19 +1,27 @@
 import React from "react";
-import { Card, Badge } from "react-bootstrap";
+import { Card, Badge, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import eventStyle from "../../styles/EventPage.module.css"
+
+import { axiosRes } from "../../api/axiosDefaults";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const Event = (props) => {
   const {
     id,
+    joins_count,
+    join_id,
     cover_image,
     name,
     description,
     start_date_time,
     location,
     cost,
-    updated_at
+    updated_at,
+    setEvents
   } = props;
+
+  const currentUser = useCurrentUser();
 
   const startDate = new Date(start_date_time);
   const currentDate = new Date();
@@ -40,6 +48,38 @@ const Event = (props) => {
     }
   };
 
+  const handleJoin = async () => {
+    try {
+      const { data } = await axiosRes.post("/joins/", { event: id });
+      setEvents((prevEvents) => ({
+        ...prevEvents,
+        results: prevEvents.results.map((event) => {
+          return event.id === id
+            ? { ...event, joins_count: event.joins_count + 1, join_id: data.id }
+            : event;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleLeave = async () => {
+    try {
+      await axiosRes.delete(`/joins/${join_id}/`);
+      setEvents((prevEvents) => ({
+        ...prevEvents,
+        results: prevEvents.results.map((event) => {
+          return event.id === id
+            ? { ...event, joins_count: event.joins_count - 1, join_id: null }
+            : event;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <Card className={`${eventStyle.CardSize} mb-3`}>
       <Link to={`/events/${id}`}>
@@ -47,11 +87,33 @@ const Event = (props) => {
       </Link>
       <Card.Body>
         {name && <Card.Title className={eventStyle.Title}>
-          {name} {timeDifferenceInDays <= 5 && (
+          <p className={eventStyle.Name}>{name}</p> {timeDifferenceInDays <= 5 && (
           <Badge variant="info" className="ml-2">New</Badge>
         )}
-        <i class="far fa-calendar-plus"></i>
-      </Card.Title>}
+        <span className={eventStyle.JoinCount}>
+            {joins_count}
+        </span>
+        {join_id ? (
+              <span onClick={handleLeave}>
+                <i
+                  className={`far fa-calendar-minus ${eventStyle.Join}`}
+                />
+              </span>
+            ) : currentUser ? (
+              <span onClick={handleJoin}>
+                <i
+                  className={`far fa-calendar-plus ${eventStyle.JoinOutline}`}
+                />
+              </span>
+            ) : (
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>Log in to join events!</Tooltip>}
+              >
+                <i className="far fa-calendar-plus" />
+              </OverlayTrigger>
+            )}
+        </Card.Title>}
         {description && <Card.Text className={`${eventStyle.Description} text-muted`}>{description}</Card.Text>}
         {start_date_time && <Card.Text className={`${eventStyle.EventFontSize} text-muted mb-0`}>
           <i class="far fa-clock"></i>{start_date_time}</Card.Text>}

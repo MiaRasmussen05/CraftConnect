@@ -30,6 +30,7 @@ function EventsPage({ message, filter = "" }) {
       }
     };
 
+    setHasLoaded(false);
     const timer = setTimeout(() => {
       fetchEvents();
     }, 1000);
