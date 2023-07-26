@@ -46,9 +46,11 @@ const Event = (props) => {
         <Card.Img variant="top" src={cover_image} alt={name} />
       </Link>
       <Card.Body>
-        {name && <Card.Title>{name} {timeDifferenceInDays <= 5 && (
+        {name && <Card.Title className={eventStyle.Title}>
+          {name} {timeDifferenceInDays <= 5 && (
           <Badge variant="info" className="ml-2">New</Badge>
         )}
+        <i class="far fa-calendar-plus"></i>
       </Card.Title>}
         {description && <Card.Text className={`${eventStyle.Description} text-muted`}>{description}</Card.Text>}
         {start_date_time && <Card.Text className={`${eventStyle.EventFontSize} text-muted mb-0`}>

@@ -8,6 +8,11 @@
     max-height: 250px;
 }
 
+.Title i {
+    float: right;
+    padding: 0 5px;
+}
+
 .Description {
     max-width: 100%;
     text-overflow: ellipsis;
