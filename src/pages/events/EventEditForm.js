@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-import { Form, Row, Col, Container, Alert }from "react-bootstrap";
+import { Form, Row, Col, Container, Alert, Button }from "react-bootstrap";
+import btnStyles from "../../styles/Button.module.css";
 
 
 function EventEditForm() {
@@ -13,9 +14,11 @@ function EventEditForm() {
     start_date_time: "",
     end_date_time: "",
     location: "Unknown",
+    website_link: "",
+    cost: 0,
   });
   const { name, description, start_date_time, end_date_time,
-    location } = postData;
+    location, website_link, cost } = postData;
 
   const textFields = (
     <div className="text-center p-3">
@@ -71,7 +74,7 @@ function EventEditForm() {
         </Alert>
       ))}
 
-<Form.Group>
+      <Form.Group>
         <Form.Label>Location</Form.Label>
         <Form.Control
           type="text" name="location"
@@ -84,6 +87,40 @@ function EventEditForm() {
         </Alert>
       ))}
 
+      <Form.Group controlId="website_link">
+        <Form.Label>Website</Form.Label>
+        <Form.Control
+          type="url" name="website_link"
+          value={website_link}
+        />
+      </Form.Group>
+      {errors?.website_link?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group controlId="cost">
+        <Form.Label>Cost</Form.Label>
+        <Form.Control
+          type="number" name="cost"
+          value={cost}
+          min="0"
+        />
+      </Form.Group>
+      {errors?.cost?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+        cancel
+      </Button>
+      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+        create
+      </Button>
     </div>
   );
 
