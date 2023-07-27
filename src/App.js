@@ -17,6 +17,7 @@ import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import TasksPage from "./pages/tasks/TasksPage";
 import EventsPage from "./pages/events/EventsPage";
 import EventPage from "./pages/events/EventPage";
+import EventEditForm from "./pages/events/EventEditForm";
 
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
           <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />} />
           <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
           <Route exact path="/events/:id" render={() => <EventPage />} />
+          <Route exact path="/events/:id/edit" render={() => <EventEditForm />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>

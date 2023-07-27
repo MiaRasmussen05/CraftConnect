@@ -1,14 +1,16 @@
 import React from "react";
 import { Card, Badge, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import eventStyle from "../../styles/EventPage.module.css"
 
 import { axiosRes } from "../../api/axiosDefaults";
+import { MoreDropdown } from "../../components/MoreDropdown";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const Event = (props) => {
   const {
     id,
+    owner,
     joins_count,
     join_id,
     cover_image,
@@ -18,10 +20,26 @@ const Event = (props) => {
     location,
     cost,
     updated_at,
+    eventPage,
     setEvents
   } = props;
 
   const currentUser = useCurrentUser();
+  const is_owner = currentUser?.username === owner;
+  const history = useHistory();
+
+  const handleEdit = () => {
+    history.push(`/events/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/events/${id}/`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const startDate = new Date(start_date_time);
   const currentDate = new Date();
@@ -91,7 +109,12 @@ const Event = (props) => {
           <Badge variant="info" className="ml-2">New</Badge>
         )}
         <span className={eventStyle.JoinCount}>
-            {joins_count}
+            {joins_count} {is_owner && eventPage && (
+              <MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            )}
         </span>
         {join_id ? (
               <span onClick={handleLeave}>
