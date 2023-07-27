@@ -104,7 +104,7 @@ function EventCreateForm() {
       <Form.Group controlId="start_date_time">
         <Form.Label>Start date</Form.Label>
         <Form.Control
-          type="datetime-local" rows={6} name="start_date_time"
+          type="datetime-local" name="start_date_time"
           value={start_date_time} onChange={handleChange}
         />
       </Form.Group>
@@ -117,7 +117,7 @@ function EventCreateForm() {
       <Form.Group controlId="end_date_time">
         <Form.Label>End date</Form.Label>
         <Form.Control
-          type="datetime-local" rows={6} name="end_date_time"
+          type="datetime-local" name="end_date_time"
           value={end_date_time} onChange={handleChange}
         />
       </Form.Group>

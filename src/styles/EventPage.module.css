@@ -1,6 +1,5 @@
 .CardSize {
-    min-height: 530px;
-    max-height: 530px;
+    min-height: 450px;
 }
 
 .CardSize Img {
@@ -8,12 +7,12 @@
     max-height: 250px;
 }
 
-.Title i, .JoinCount {
+.Title i, .JoinCount, .DropDown {
     float: right;
     padding: 0 5px;
 }
 
-.Description, .Title {
+.Description, .WebsiteLink {
     max-width: 100%;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -21,10 +20,15 @@
 }
 
 .Name {
-    max-width: 60%;
+    max-width: 70%;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    display: inline-flex;
+}
+
+.TitleLine {
+    max-width: 70%;
     display: inline-flex;
 }
 
@@ -40,10 +44,26 @@
     color: #008080;
 }
   
-.Join:hover {
+.Join:hover, .WebsiteLink:hover {
     color: #008080;
 }
   
 .JoinOutline:hover {
     color: #008080;
+}
+
+@media screen and (max-width: 991px) {
+    .TitleLine {
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .TitleLine {
+        font-size: 12px;
+    }
+
+    .Title {
+        margin-bottom: 30px;
+    }
 }

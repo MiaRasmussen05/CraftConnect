@@ -125,7 +125,7 @@ function EventEditForm() {
         <Form.Label>Start date</Form.Label>
         <Form.Control
           type="datetime-local" rows={6} name="start_date_time"
-          value={eventData.start_date_time} onChange={handleChange}
+          value={start_date_time} onChange={handleChange}
         />
       </Form.Group>
       {errors?.start_date_time?.map((message, idx) => (

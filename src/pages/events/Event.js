@@ -17,10 +17,13 @@ const Event = (props) => {
     name,
     description,
     start_date_time,
+    end_date_time,
     location,
     cost,
+    website_link,
     updated_at,
     eventPage,
+    eventsPage,
     setEvents
   } = props;
 
@@ -105,16 +108,19 @@ const Event = (props) => {
       </Link>
       <Card.Body>
         {name && <Card.Title className={eventStyle.Title}>
-          <p className={eventStyle.Name}>{name}</p> {timeDifferenceInDays <= 5 && (
+          <p className={`${eventsPage ? eventStyle.Name: ""} ${eventStyle.TitleLine}`}>{name}</p> {timeDifferenceInDays <= 5 && (
           <Badge variant="info" className="ml-2">New</Badge>
         )}
-        <span className={eventStyle.JoinCount}>
-            {joins_count} {is_owner && eventPage && (
+        <span className={`${eventStyle.DropDown} pl-4`}>
+            {is_owner && eventPage && (
               <MoreDropdown
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
               />
             )}
+        </span>
+        <span className={eventStyle.JoinCount}>
+            {joins_count} 
         </span>
         {join_id ? (
               <span onClick={handleLeave}>
@@ -137,11 +143,20 @@ const Event = (props) => {
               </OverlayTrigger>
             )}
         </Card.Title>}
-        {description && <Card.Text className={`${eventStyle.Description} text-muted`}>{description}</Card.Text>}
+        {description && <Card.Text className={`${eventsPage ? eventStyle.Description: ""} text-muted`}>{description}</Card.Text>}
         {start_date_time && <Card.Text className={`${eventStyle.EventFontSize} text-muted mb-0`}>
           <i class="far fa-clock"></i>{start_date_time}</Card.Text>}
-        {location && <Card.Text className={`${eventStyle.EventFontSize} text-muted`}>
+        {end_date_time && <Card.Text className={`${eventStyle.EventFontSize} text-muted mb-0`}>
+          <i class="far fa-clock"></i>{end_date_time}</Card.Text>}
+        {location && <Card.Text className={`${eventStyle.EventFontSize} text-muted mb-0`}>
           <i class="fas fa-map-marker-alt"></i>{location}</Card.Text>}
+        {website_link && (
+          <a href={website_link} className={eventStyle.WebsiteLink} target="_blank" rel="noopener noreferrer">
+            <Card.Text className={`${eventStyle.EventFontSize} ${eventStyle.WebsiteLink} text-muted`}>
+              <i className="fas fa-external-link-alt"></i> {website_link}
+            </Card.Text>
+          </a>
+        )}
         {cost && <Card.Text className={`${eventStyle.EventFontSize} text-right text-muted`}>
           <i class="fas fa-euro-sign"></i>{cost}</Card.Text>}
       </Card.Body>

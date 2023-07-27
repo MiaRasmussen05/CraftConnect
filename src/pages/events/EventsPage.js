@@ -64,7 +64,7 @@ function EventsPage({ message, filter = "" }) {
             {events.results.length ? (
               events.results.map((event) => (
                 <Col key={event.id} className="p-0 p-lg-2" lg={4}>
-                  <Event {...event} setEvents={setEvents} />
+                  <Event {...event} setEvents={setEvents} eventsPage />
                 </Col>
               ))
             ) : (
