@@ -5,11 +5,12 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { Container, Row, Col, Form } from "react-bootstrap"
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
+import eventStyle from "../../styles/EventPage.module.css"
 
-import EventCreateForm from "../events/EventCreateForm"
 import Event from "../events/Event"
 import Asset from "../../components/Asset";
 import NoResults from "../../assets/no-results.png";
+import { useHistory } from "react-router-dom";
 
 
 function EventsPage({ message, filter = "" }) {
@@ -17,6 +18,7 @@ function EventsPage({ message, filter = "" }) {
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
 
+  const history = useHistory();
   const [query, setQuery] = useState("");
 
   useEffect(() => {
@@ -40,22 +42,37 @@ function EventsPage({ message, filter = "" }) {
 
   }, [filter, query, pathname]);
 
+  const ButtonComponent = () => {
+    const handleButton = () => {
+      history.push("/events/create");
+    };
+
+    return (
+      <button className={eventStyle.Btn} onClick={handleButton}>
+        <i className="far fa-plus-square"></i>Add Event
+      </button>
+    );
+  };
+
+  
 
   return (
     <Container>
       <Row>
+        <Col>
+          <ButtonComponent />
+        </Col>
         <Col className="py-2 p-0 p-lg-2" lg={12}>
-            <EventCreateForm />
-            <i className={`fas fa-search ${styles.SearchIcon}`} />
-            <Form
-          className={styles.SearchBar}
-          onSubmit={(event) => event.preventDefault()}
-        >
-          <Form.Control
-            value={query} onChange={(event) => setQuery(event.target.value)}
-            type="text" className="mr-sm-2" placeholder="Search posts"
-          />
-        </Form>
+          <i className={`fas fa-search ${styles.SearchIcon}`} />
+          <Form
+            className={styles.SearchBar}
+            onSubmit={(event) => event.preventDefault()}
+          >
+            <Form.Control
+              value={query} onChange={(event) => setQuery(event.target.value)}
+              type="text" className="mr-sm-2" placeholder="Search posts"
+            />
+          </Form>
         </Col>
       </Row>
       <Row>

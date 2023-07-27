@@ -28,7 +28,7 @@
 }
 
 .TitleLine {
-    max-width: 70%;
+    max-width: 50%;
     display: inline-flex;
 }
 
@@ -49,6 +49,24 @@
 }
   
 .JoinOutline:hover {
+    color: #008080;
+}
+
+.Btn {
+    float: right;
+    background-color: #008080;
+    border: 2px solid #008080;
+    border-radius: 10px;
+    color: #fff;
+    padding-right: 10px;
+}
+
+.Btn i {
+    color: #fff;
+}
+
+.Btn:hover, .Btn i:hover {
+    background-color: #fff;
     color: #008080;
 }
 
