@@ -10,3 +10,26 @@
     border-bottom-right-radius: 0;
     border-right: 0;
 }
+
+.IdeasWrapper {
+    height: 453px;
+    overflow-y: scroll;
+}
+
+@media screen and (max-width: 791px) {
+    .Header {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .Header {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .Header {
+        font-size: 20px;
+    }
+}

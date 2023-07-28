@@ -42,7 +42,7 @@ const Idea = (props) => {
               setShowEditForm={setShowEditForm}
             />
           ) : (
-            <p className="d-flex pt-2  m-0">{title} {is_owner && (
+            <p className="d-flex pt-2 m-0">{title} {is_owner && (
               <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
             )}</p>
           )}

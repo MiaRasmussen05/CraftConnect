@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row, Container } from "react-bootstrap";
 import appStyles from "../../App.module.css";
+import taskStyles from "../../styles/TaskPage.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -36,17 +37,20 @@ function TaskPage() {
   return (
     <Row >
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <h1 className="text-center">Don't forget your next project!</h1>
-        <Container className={appStyles.Content}>
+        <h1 className={`${taskStyles.Header} text-center mt-5`}>Don't forget your next project!</h1>
+        <IdeasCreateForm setIdeas={setIdeas}  />
+        <Container className={`${appStyles.Content} ${taskStyles.IdeasWrapper}`}>
           {currentUser ? (
-            <IdeasCreateForm setIdeas={setIdeas}  />
+            <br />
           ) : ideas.results.length ? (
             "Ideas"
           ) : null}
           {ideas.results.length ? (
             <InfiniteScroll
               children={ideas.results.map((idea) => (
-                <Idea key={idea.id} id={idea.id} {...idea} setIdeas={setIdeas} />
+                <Container>
+                  <Idea key={idea.id} id={idea.id} {...idea} setIdeas={setIdeas} />
+                </Container>
               ))}
               dataLength={ideas.results.length}
               loader={<Asset spinner />}
