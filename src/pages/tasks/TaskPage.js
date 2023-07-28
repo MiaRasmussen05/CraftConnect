@@ -67,9 +67,11 @@ function TaskPage() {
           )}
         </Container>
       </Col>
-      <Col className="py-3 p-0 p-lg-3">
-      <h2 className={`${taskStyles.Header} text-center mt-5`}>Todo Task</h2>
-      <TaskCreateForm />
+      <Col className="py-3 p-lg-3">
+        <h2 className={`${taskStyles.Header} text-center mt-5`}>Todo Task</h2>
+        <Container className={`${appStyles.Content} p-4`}>
+          <TaskCreateForm />
+        </Container>
       </Col>
     </Row>
   );

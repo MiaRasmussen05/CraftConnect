@@ -1,41 +1,45 @@
 import React, { useState } from "react";
 
-import { Form, InputGroup, Alert } from "react-bootstrap";
+import { Form, Alert } from "react-bootstrap";
 
 import styles from "../../styles/TaskPage.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 
-
 function TaskCreateForm(props) {
   const { setTasks } = props;
 
-  const [title, setTitle] = useState("");
-  const [idea, setIdea] = useState("");
-  const [content, setContent] = useState("");
-  const [category, setCategory] = useState("");
+  const initialState = {
+    idea: "",
+    title: "",
+    content: "",
+    category: "",
+  };
+
+  const [formValues, setFormValues] = useState(initialState);
   const [errors, setErrors] = useState({});
 
   const handleChange = (event) => {
-    setTitle(event.target.value);
+    const { name, value } = event.target;
+    setFormValues((prevFormValues) => ({
+      ...prevFormValues,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
 
-    formData.append("idea", idea);
-    formData.append("title", title);
-    formData.append("content", content);
-    formData.append("category", category);
+    formData.append("idea", formValues.idea);
+    formData.append("title", formValues.title);
+    formData.append("content", formValues.content);
+    formData.append("category", formValues.category);
 
     try {
       const response = await axiosReq.post("/tasks/", formData);
       const newTask = response.data;
-      setTitle("");
-      setIdea("");
-      setContent("");
-      setCategory("");
+      setFormValues(initialState);
 
       setTasks((prevTasks) => ({
         ...prevTasks,
@@ -51,16 +55,18 @@ function TaskCreateForm(props) {
 
   return (
     <Form className="mt-3" onSubmit={handleSubmit}>
-      <Form.Group className="d-flex">
-        <InputGroup>
-          <Form.Control className={`${styles.Input} d-flex`}
-            placeholder="Write your idea here..."
-            as="select"
-            value={idea}
-            onChange={handleChange}
-            rows={1}
-          />
-        </InputGroup>
+      <Form.Group>
+        <Form.Control
+          className={`${styles.Input} d-flex`}
+          placeholder="Write your idea here..."
+          as="select"
+          name="idea"
+          value={formValues.idea}
+          onChange={handleChange}
+          rows={1}
+        >
+          <option>Choose an idea here...</option>
+        </Form.Control>
       </Form.Group>
       {errors?.idea?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
@@ -69,10 +75,12 @@ function TaskCreateForm(props) {
       ))}
 
       <Form.Group>
-        <Form.Control className={`${styles.Input} d-flex`}
-          placeholder="Write your idea here..."
+        <Form.Control
+          className={`${styles.Input} d-flex`}
+          placeholder="Write the title here..."
           as="textarea"
-          value={title}
+          name="title"
+          value={formValues.title}
           onChange={handleChange}
           rows={1}
         />
@@ -83,9 +91,44 @@ function TaskCreateForm(props) {
         </Alert>
       ))}
 
+      <Form.Group>
+        <Form.Control
+          className={`${styles.Input} d-flex`}
+          placeholder="Write some context here..."
+          as="textarea"
+          name="content"
+          value={formValues.content}
+          onChange={handleChange}
+          rows={1}
+        />
+      </Form.Group>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Control
+          className={`${styles.Input} d-flex`}
+          as="select"
+          name="category"
+          value={formValues.category}
+          onChange={handleChange}
+          rows={1}
+        >
+          <option>Choose a category here...</option>
+        </Form.Control>
+      </Form.Group>
+      {errors?.category?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
       <button
         className={`${btnStyles.Button} btn d-block ml-auto`}
-        disabled={!title.trim()}
+        disabled={!formValues.title.trim()}
         type="submit"
       >
         Add
