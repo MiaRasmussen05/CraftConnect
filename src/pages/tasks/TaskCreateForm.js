@@ -7,39 +7,45 @@ import btnStyles from "../../styles/Button.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function TaskCreateForm(props) {
-  const { setTasks } = props;
 
-  const initialState = {
-    idea: "",
+  const { setTasks, setTitle } = props;
+
+  const [errors, setErrors] = useState({});
+  const [taskData, setTaskData] = useState({
     title: "",
     content: "",
+    idea: "",
     category: "",
-  };
+  });
 
-  const [formValues, setFormValues] = useState(initialState);
-  const [errors, setErrors] = useState({});
+  const { title, content, idea, category } = taskData;
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormValues((prevFormValues) => ({
-      ...prevFormValues,
-      [name]: value,
-    }));
+    setTaskData({
+      ...taskData,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
 
-    formData.append("idea", formValues.idea);
-    formData.append("title", formValues.title);
-    formData.append("content", formValues.content);
-    formData.append("category", formValues.category);
+    formData.append("title", title);
+    formData.append("content", content);
+    formData.append("idea", idea);
+    formData.append("category", category);
 
     try {
       const response = await axiosReq.post("/tasks/", formData);
       const newTask = response.data;
-      setFormValues(initialState);
+      setTitle("");
+      setTaskData({
+        title: "",
+        content: "",
+        idea: "",
+        category: "",
+      });
 
       setTasks((prevTasks) => ({
         ...prevTasks,
@@ -61,7 +67,7 @@ function TaskCreateForm(props) {
           placeholder="Write your idea here..."
           as="select"
           name="idea"
-          value={formValues.idea}
+          value={idea}
           onChange={handleChange}
           rows={1}
         >
@@ -80,7 +86,7 @@ function TaskCreateForm(props) {
           placeholder="Write the title here..."
           as="textarea"
           name="title"
-          value={formValues.title}
+          value={title}
           onChange={handleChange}
           rows={1}
         />
@@ -97,7 +103,7 @@ function TaskCreateForm(props) {
           placeholder="Write some context here..."
           as="textarea"
           name="content"
-          value={formValues.content}
+          value={content}
           onChange={handleChange}
           rows={1}
         />
@@ -113,7 +119,7 @@ function TaskCreateForm(props) {
           className={`${styles.Input} d-flex`}
           as="select"
           name="category"
-          value={formValues.category}
+          value={category}
           onChange={handleChange}
           rows={1}
         >
@@ -128,7 +134,7 @@ function TaskCreateForm(props) {
 
       <button
         className={`${btnStyles.Button} btn d-block ml-auto`}
-        disabled={!formValues.title.trim()}
+        disabled={!title.trim()}
         type="submit"
       >
         Add
