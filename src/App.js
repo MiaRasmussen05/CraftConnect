@@ -14,7 +14,7 @@ import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
-import TasksPage from "./pages/tasks/TasksPage";
+import TaskPage from "./pages/tasks/TaskPage";
 import EventCreateForm from "./pages/events/EventCreateForm";
 import EventsPage from "./pages/events/EventsPage";
 import EventPage from "./pages/events/EventPage";
@@ -41,7 +41,7 @@ function App() {
               />
             )}
           />
-          <Route exact path="/tasks" render={() => <TasksPage />} />
+          <Route exact path="/tasks" render={() => <TaskPage />} />
           <Route exact path="/events" render={() => <EventsPage />} />
           <Route exact path="/liked" render={() => (
               <PostsPage
