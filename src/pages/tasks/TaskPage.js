@@ -11,6 +11,7 @@ import { fetchMoreData } from "../../utils/utils";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import IdeasCreateForm from "../tasks/IdeasCreateForm";
+import TaskCreateForm from "../tasks/TaskCreateForm";
 import Idea from "../tasks/Idea";
 
 function TaskPage() {
@@ -36,7 +37,7 @@ function TaskPage() {
 
   return (
     <Row >
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
+      <Col className="py-2 p-0 p-lg-2" lg={7}>
         <h1 className={`${taskStyles.Header} text-center mt-5`}>Don't forget your next project!</h1>
         <IdeasCreateForm setIdeas={setIdeas}  />
         <Container className={`${appStyles.Content} ${taskStyles.IdeasWrapper}`}>
@@ -65,6 +66,10 @@ function TaskPage() {
             </Container>
           )}
         </Container>
+      </Col>
+      <Col className="py-3 p-0 p-lg-3">
+      <h2 className={`${taskStyles.Header} text-center mt-5`}>Todo Task</h2>
+      <TaskCreateForm />
       </Col>
     </Row>
   );

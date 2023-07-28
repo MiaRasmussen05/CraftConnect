@@ -1,40 +1,95 @@
 import React, { useState } from "react";
 
-import { Form, Button } from "react-bootstrap";
-import styles from "../../styles/Button.module.css";
-import taskStyles from "../../styles/TaskPage.module.css";
+import { Form, InputGroup, Alert } from "react-bootstrap";
 
-import { axiosRes } from "../../api/axiosDefaults";
+import styles from "../../styles/TaskPage.module.css";
+import btnStyles from "../../styles/Button.module.css";
+import { axiosReq } from "../../api/axiosDefaults";
 
-function TaskCreateForm() {
+
+function TaskCreateForm(props) {
+  const { setTasks } = props;
+
   const [title, setTitle] = useState("");
+  const [idea, setIdea] = useState("");
+  const [content, setContent] = useState("");
+  const [category, setCategory] = useState("");
+  const [errors, setErrors] = useState({});
 
-  const handleChangeTitle = (event) => {
+  const handleChange = (event) => {
     setTitle(event.target.value);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("idea", idea);
+    formData.append("title", title);
+    formData.append("content", content);
+    formData.append("category", category);
+
     try {
-      await axiosRes.post("/ideas/", {
-        title,
-      });
+      const response = await axiosReq.post("/tasks/", formData);
+      const newTask = response.data;
       setTitle("");
+      setIdea("");
+      setContent("");
+      setCategory("");
+
+      setTasks((prevTasks) => ({
+        ...prevTasks,
+        results: [newTask, ...prevTasks.results],
+      }));
     } catch (err) {
       console.log(err);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
     }
   };
 
   return (
-    <Form onSubmit={handleSubmit} className="mb-1">
-      <h1 className="text-center">Ideas for your next DIY</h1>
-      <div className="d-flex">
-        <Form.Control value={title} className={taskStyles.Input}
-          onChange={handleChangeTitle} placeholder="Write them down here..." />
-        <Button className={`${styles.Blue} ${taskStyles.AddBtn} py-0`} type="submit">
-          Add
-        </Button>
-      </div>
+    <Form className="mt-3" onSubmit={handleSubmit}>
+      <Form.Group className="d-flex">
+        <InputGroup>
+          <Form.Control className={`${styles.Input} d-flex`}
+            placeholder="Write your idea here..."
+            as="select"
+            value={idea}
+            onChange={handleChange}
+            rows={1}
+          />
+        </InputGroup>
+      </Form.Group>
+      {errors?.idea?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Control className={`${styles.Input} d-flex`}
+          placeholder="Write your idea here..."
+          as="textarea"
+          value={title}
+          onChange={handleChange}
+          rows={1}
+        />
+      </Form.Group>
+      {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <button
+        className={`${btnStyles.Button} btn d-block ml-auto`}
+        disabled={!title.trim()}
+        type="submit"
+      >
+        Add
+      </button>
     </Form>
   );
 }

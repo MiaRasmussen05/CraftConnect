@@ -16,6 +16,12 @@
     overflow-y: scroll;
 }
 
+@media screen and (max-width: 1200px) {
+    .Header {
+        font-size: 36px;
+    }
+}
+
 @media screen and (max-width: 791px) {
     .Header {
         font-size: 30px;
