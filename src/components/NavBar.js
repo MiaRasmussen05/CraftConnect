@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
@@ -33,47 +33,66 @@ const NavBar = () => {
   );
   const loggedInIcons = (
     <>
-      <NavLink className={styles.NavLink}
+      <NavLink className={`${styles.NavLink} d-md-none`}
         activeClassName={styles.Active} to="/feed"
       >
         <i className="fas fa-stream"></i>Feed
       </NavLink>
       <NavLink
-        className={styles.NavLink}
+        className={`${styles.NavLink} d-md-none`}
         activeClassName={styles.Active} to="/liked"
       >
         <i className="fas fa-heart"></i>Liked
       </NavLink>
       <NavLink
-        className={styles.NavLink}
+        className={`${styles.NavLink} d-md-none`}
         activeClassName={styles.Active} to="/tasks"
       >
         <i class="fas fa-list-ul"></i>Tasks
       </NavLink>
       <NavLink
-        className={styles.NavLink}
+        className={`${styles.NavLink} d-md-none`}
         activeClassName={styles.Active} to="/events"
       >
         <i class="fas fa-calendar-alt"></i>Events
       </NavLink>
-      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
+      <NavLink className={`${styles.NavLink} d-md-none`} to="/" onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt"></i>Sign out
       </NavLink>
       <NavLink
-        className={styles.NavLink}
+        className={`${styles.NavLink} d-md-none`}
         to={`/profiles/${currentUser?.profile_id}`}
       >
         <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
       </NavLink>
+
+      <NavDropdown title={<Avatar src={currentUser?.profile_image} text="Profile" height={40} />} className="d-none d-md-block" id="basic-nav-dropdown">
+        <NavDropdown.Item className={styles.NavLink}
+        href={`/profiles/${currentUser?.profile_id}`}><i class="fas fa-user"></i> Profile</NavDropdown.Item>
+        <NavDropdown.Item className={styles.NavLink}
+        activeClassName={styles.Active} href="/feed"><i className="fas fa-stream"></i> Feed</NavDropdown.Item>
+        <NavDropdown.Item className={styles.NavLink}
+        activeClassName={styles.Active} href="/liked"><i className="fas fa-heart"></i> Liked</NavDropdown.Item>
+        <NavDropdown.Item className={styles.NavLink}
+        activeClassName={styles.Active} href="/events"><i class="fas fa-calendar-alt"></i> Events</NavDropdown.Item>
+        <NavDropdown.Item className={styles.NavLink}
+        activeClassName={styles.Active} href="/tasks"><i class="fas fa-list-ul"></i> Ideas</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item className={`${styles.NavLink} mt-5`}>
+          <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
+            <i className="fas fa-sign-out-alt"></i>Sign out
+          </NavLink>
+        </NavDropdown.Item>
+      </NavDropdown>
     </>
   );
   const loggedOutIcons = (
     <>
-      <NavLink to="/signin" className={styles.NavLink} 
+      <NavLink to="/signin" className={`${styles.NavLink} pt-2 `} 
         activeClassName={styles.Active}>
         <i className='fas fa-sign-in-alt'></i>Sign in
       </NavLink>
-      <NavLink to="/signup" className={styles.NavLink} 
+      <NavLink to="/signup" className={`${styles.NavLink} pt-2 `} 
         activeClassName={styles.Active}>
         <i className='fas fa-user-plus'></i>Sign up
       </NavLink>
@@ -81,7 +100,7 @@ const NavBar = () => {
   );
   
   return (
-    <Navbar expanded={expanded} className={styles.NavBar} 
+    <Navbar expanded={expanded} className={`${styles.NavBar} pb-1`}
       expand="md" fixed="top"
     >
       <Container>
@@ -96,7 +115,7 @@ const NavBar = () => {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-right">
-            <NavLink to="/" exact activeClassName={styles.Active}>
+            <NavLink to="/" exact activeClassName={styles.Active} className="pt-2">
               <i className='fas fa-home'></i>Home
             </NavLink>
 
