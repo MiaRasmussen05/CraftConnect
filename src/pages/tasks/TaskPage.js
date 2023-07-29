@@ -21,7 +21,7 @@ function TaskPage() {
   const currentUser = useCurrentUser();
   const [ideas, setIdeas] = useState({ results: [] });
   const [tasks, setTasks] = useState({ results: [] });
-  const [setTitle] = useState("");
+  const [title, setTitle] = useState("");
 
 
   useEffect(() => {
@@ -54,70 +54,71 @@ function TaskPage() {
   }, [id]);
 
   return (
-    <Row >
-      <Col className="py-2 p-0 p-lg-2" lg={7}>
-        <h1 className={`${taskStyles.Header} text-center mt-5`}>Don't forget your next project!</h1>
-        <IdeasCreateForm setIdeas={setIdeas}  />
-        <Container className={`${appStyles.Content} ${taskStyles.IdeasWrapper}`}>
-          {currentUser ? (
-            <br />
-          ) : ideas.results.length ? (
-            "Ideas"
-          ) : null}
-          {ideas.results.length ? (
-            <InfiniteScroll
-              children={ideas.results.map((idea) => (
-                <Container>
-                  <Idea key={idea.id} id={idea.id} {...idea} setIdeas={setIdeas} />
-                </Container>
-              ))}
-              dataLength={ideas.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!ideas.next}
-              next={() => fetchMoreData(ideas, setIdeas)}
-            />
-          ) : currentUser ? (
-            <span>No ideas... yet</span>
-          ) : (
-            <Container>
-              <Asset spinner />
-            </Container>
-          )}
-        </Container>
-      </Col>
-      <Col className="py-3 p-lg-3" lg={5}>
-        <h2 className={`${taskStyles.Header} text-center mt-5`}>Todo Task</h2>
-        <Container className={`${appStyles.Content} p-4`}>
-          <TaskCreateForm setTasks={setTasks} setTitle={setTitle} tasks={tasks} />
-        </Container>
-      </Col>
-      <Col>
-      {currentUser ? (
-            <br />
-          ) : tasks.results.length ? (
-            "Tasks"
-          ) : null}
-          {tasks.results.length ? (
-            <InfiniteScroll
-              children={tasks.results.map((tasks) => (
-                <Container>
-                  <Task key={tasks.id} {...tasks} setTasks={setTasks} />
-                </Container>
-              ))}
-              dataLength={tasks.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!tasks.next}
-              next={() => fetchMoreData(tasks, setTasks)}
-            />
-          ) : currentUser ? (
-            <span>No tasks... yet</span>
-          ) : (
-            <Container>
-              <Asset spinner />
-            </Container>
-          )}
-      </Col>
-    </Row>
+    <Container>
+      <Row >
+        <Col className="py-2 p-0 p-lg-2" lg={7}>
+          <h1 className={`${taskStyles.Header} text-center mt-5`}>Don't forget your next project!</h1>
+          <IdeasCreateForm setIdeas={setIdeas}  />
+          <div className={`${appStyles.Content} ${taskStyles.IdeasWrapper}`}>
+            {currentUser ? (
+              <br />
+            ) : ideas.results.length ? (
+              "Ideas"
+            ) : null}
+            {ideas.results.length ? (
+              <InfiniteScroll
+                children={ideas.results.map((idea) => (
+                  <Container>
+                    <Idea key={idea.id} id={idea.id} {...idea} setIdeas={setIdeas} />
+                  </Container>
+                ))}
+                dataLength={ideas.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!ideas.next}
+                next={() => fetchMoreData(ideas, setIdeas)}
+              />
+            ) : currentUser ? (
+              <span>No ideas... yet</span>
+            ) : (
+              <Container>
+                <Asset spinner />
+              </Container>
+            )}
+          </div>
+        </Col>
+        <Col className="py-3 p-lg-3" lg={5}>
+          <h2 className={`${taskStyles.Header} text-center mt-5`}>Todo Task</h2>
+          <div className={`${appStyles.Content} p-4`}>
+            <TaskCreateForm setTasks={setTasks} setTitle={setTitle} tasks={tasks} ideas={ideas.results} />
+          </div>
+        </Col>
+      </Row>
+      <h2 className={`text-center mt-5`}>Todo task list</h2>
+        {currentUser ? (
+          <br />
+        ) : tasks.results.length ? (
+          "Tasks"
+        ) : null}
+        {tasks.results.length ? (
+          <InfiniteScroll
+            children={tasks.results.map((tasks) => (
+              <Col key={tasks.id} lg={4} className={`${taskStyles.TodoCard}`}>
+                <Task {...tasks} setTasks={setTasks} />
+              </Col>
+            ))}
+            dataLength={tasks.results.length}
+            loader={<Asset spinner />}
+            hasMore={!!tasks.next}
+            next={() => fetchMoreData(tasks, setTasks)}
+          />
+        ) : currentUser ? (
+          <span>No tasks... yet</span>
+        ) : (
+          <Container>
+            <Asset spinner />
+          </Container>
+        )}
+    </Container>
   );
 }
 export default TaskPage;

@@ -16,6 +16,14 @@
     overflow-y: scroll;
 }
 
+.Todo {
+    width: 100%;
+}
+
+.TodoCard {
+    display: inline-flex;
+}
+
 @media screen and (max-width: 1200px) {
     .Header {
         font-size: 36px;
