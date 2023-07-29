@@ -8,33 +8,41 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 function TaskCreateForm(props) {
 
-  const { setTasks, setTitle } = props;
+  const { ideas, setTasks, setTitle } = props;
 
   const [errors, setErrors] = useState({});
   const [taskData, setTaskData] = useState({
     title: "",
-    content: "",
     idea: "",
-    category: "",
   });
 
-  const { title, content, idea, category } = taskData;
+  const { title, idea } = taskData;
 
   const handleChange = (event) => {
+    const { name, value } = event.target;
     setTaskData({
       ...taskData,
-      [event.target.name]: event.target.value,
+      [name]: value,
     });
+
+    if (name === "idea") {
+      const selectedIdea = ideas.find((idea) => idea.id === parseInt(value));
+      if (selectedIdea) {
+        setTaskData((prevTaskData) => ({
+          ...prevTaskData,
+          title: selectedIdea.title,
+        }));
+      }
+    }
   };
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
 
     formData.append("title", title);
-    formData.append("content", content);
     formData.append("idea", idea);
-    formData.append("category", category);
 
     try {
       const response = await axiosReq.post("/tasks/", formData);
@@ -42,9 +50,7 @@ function TaskCreateForm(props) {
       setTitle("");
       setTaskData({
         title: "",
-        content: "",
         idea: "",
-        category: "",
       });
 
       setTasks((prevTasks) => ({
@@ -72,6 +78,11 @@ function TaskCreateForm(props) {
           rows={1}
         >
           <option>Choose an idea here...</option>
+          {ideas.map((ideas) => (
+            <option key={ideas.id} value={ideas.id}>
+              {ideas.title}
+            </option>
+          ))}
         </Form.Control>
       </Form.Group>
       {errors?.idea?.map((message, idx) => (
@@ -92,41 +103,6 @@ function TaskCreateForm(props) {
         />
       </Form.Group>
       {errors?.title?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-
-      <Form.Group>
-        <Form.Control
-          className={`${styles.Input} d-flex`}
-          placeholder="Write some context here..."
-          as="textarea"
-          name="content"
-          value={content}
-          onChange={handleChange}
-          rows={1}
-        />
-      </Form.Group>
-      {errors?.content?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
-
-      <Form.Group>
-        <Form.Control
-          className={`${styles.Input} d-flex`}
-          as="select"
-          name="category"
-          value={category}
-          onChange={handleChange}
-          rows={1}
-        >
-          <option>Choose a category here...</option>
-        </Form.Control>
-      </Form.Group>
-      {errors?.category?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>

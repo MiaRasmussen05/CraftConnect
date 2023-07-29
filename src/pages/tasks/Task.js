@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Media } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
+import taskStyle from "../../styles/TaskPage.module.css"
 import TaskEditForm from "./TaskEditForm";
 
 const Task = (props) => {
@@ -31,10 +32,9 @@ const Task = (props) => {
   };
 
   return (
-    <div>
-      <Media>
-        <Media.Body className="align-self-center p-0 pl-3 m-0">
-        {showEditForm ? (
+      <Card className={`${taskStyle.Todo} mb-4`}>
+        <Card.Body>
+          {showEditForm ? (
             <TaskEditForm
               id={id}
               title={title}
@@ -42,14 +42,12 @@ const Task = (props) => {
               setShowEditForm={setShowEditForm}
             />
           ) : (
-            <p className="d-flex pt-2 m-0">{title} {is_owner && (
+            <Card.Title className="d-flex pt-2 m-0 text-right">{title} {is_owner && (
               <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
-            )}</p>
+            )}</Card.Title>
           )}
-        </Media.Body>
-      </Media>
-      <hr />
-    </div>
+        </Card.Body>
+      </Card>
   );
 };
 
