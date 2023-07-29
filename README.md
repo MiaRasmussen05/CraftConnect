@@ -52,3 +52,29 @@ Welcome to Craft|Hub! This website was made for my last project with Code Instit
 - [Resources Used](#resources-used)
 - [Content](#content)
 - [Honourable mentions](#honourable-mentions)
+
+# UX Design
+  My goal for creating this app was to create a social platform only for the creativity that lives in all of us. I have found out that using the React library and its implemented feature has helped to improve the user experience more then I originally thought:
+
+  - Allow users to be able to learn, experince and inspire others to make their own projects.
+  - Helping the user to avoid refreshing the page all the time.
+  - Quick responce form the website to the user.
+  - Creating a space where a user can comment, like and keep up on new events that keeps their creativity going.
+
+This site was created respecting the Five Planes of website design:
+
+## Strategy
+
+  __Typical User__
+
+  *Site User*
+
+  A typical site user would be any soul that has any kind of creativity inside them. All ages that want to either share thei own ideas, reading other peoples tips, fact or ideas.
+
+  __User Stories__
+
+  All the user stories where managed in the Kanban board which was created inside GitHub Projects. User stories were then prioritized with the MoSCoW approach and the labels on the Kanban board where used to manage this. The Kanban board was split into three columns to manage the various stages of development:
+
+1. To do: This item hasn't been started yet.
+2. In Progress: This item is actively being worked on in the Backend and Frontend.
+3. Done: All tasks have been completed.
