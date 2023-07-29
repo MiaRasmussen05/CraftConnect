@@ -220,7 +220,7 @@ function EventCreateForm() {
                 onChange={handleChangeImage} ref={imageInput}
               />
             </Form.Group>
-            {errors?.image?.map((message, idx) => (
+            {errors?.cover_image?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}
               </Alert>
