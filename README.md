@@ -446,3 +446,25 @@ This site was created respecting the Five Planes of website design:
   - Remember to manually Deploy Branch.
   - Click the "Open App" button.
   - Just to make sure it matches the development version, then test the final deployed version of the app.
+
+## Credits
+
+  ### Resources Used
+
+  - Code Institutes 'Django Rest Framework Walkthrough Videos'
+  - Code Institutes 'Moments Walkthrough Videos'
+  - React Bootstrap documentation
+  - W3C Schools 
+  - Stack Overflow for enquiries relating to React.js.
+  - Slack
+
+  ### Content
+    
+  - All images, logo, and text have been made and written by me, this does not include post by other people and event information.
+
+  ### Honourable mentions
+
+  - My mentor Rohit for the support and helping me understand what I needed to do.
+  - All my favorite people that have gone through and tested my site whenever I asked.
+  - Martin CI Tutor for helping me find out my config vars need to be updated.
+  - Rebecca CI Tutor for going over 404 error for problems in my settings file for my deployed DRF API.
