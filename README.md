@@ -411,6 +411,38 @@ This site was created respecting the Five Planes of website design:
 
   ### Add Heroku Config Vars:
 
+  - In Heroku dashboard you need to add a few things 
+  - Go to settings tab on Heroku
+  - Then add five new config vars:
+    1. DATABASE_URL (value "<copiedURL>")
+    2. SECRET_KEY (value "MY_SECRET_KEY")
+    3. PORT (value "8000")
+    4. DISABLE_COLLECTSTATIC (value "1") 
+    - The last step will be removed again before deployment
+    5. CLOUDINARY_URL (value "<COPIED_CARIABLE>")
+    6. And any other Config Vars you will need 
+
   ### First Deployment
 
+  This project was deployed on Heroku using Code Institute's walkthrough videos. After creating the GitHub repository, the steps taken to create the Heroku App were as follows:
+
+  - Run terminal command npx create-react-app . --use-npm to create React app, once the workspace has loaded.
+  - Run terminal command npm start to check app is working, once the app is installed.
+  - Run terminal command npm install react-bootstrap@1.6.3 bootstrap@4.6.0 to install Bootstrap.
+  - In App.js, replace the standard React Header element with some text and remove the logo import.
+  - Confirm the added test renders in the browser preview then add, commit and push changes.
+  - Create a new Heroku app.
+  - Go to 'Settings' and confirm that the "heroku/nodejs" buildpack is present.
+  - Click on the 'Deploy' tab and click on GitHub in the 'Deployment Method'.
+  - Go to 'App connected to GitHub'. Search and select the relevant repository and click 'Connect'.
+  - Go to 'Manual Deploy' section and click 'Deploy Branch'.
+  - Click 'Open App' button to view newly deployed app.
+
   ### Last Deployment
+
+  - Add the Procfile at the root of the project.
+  - Committed all finalised code and pushed to Github repositories.
+  - Then open up the dashboard for your react app in Heroku.
+  - Remember to manually Deploy Branch.
+  - Click the "Open App" button.
+  - Just to make sure it matches the development version, then test the final deployed version of the app.
