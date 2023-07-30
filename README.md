@@ -143,10 +143,16 @@ This site was created respecting the Five Planes of website design:
 
   __Home/Feed/Liked Pages__
 
+  - The home page is the first page a user sees it is where all posts from all users show up after being posted, the feed and liked pages are the exact same in layout. 
+  - The feed page is for a users to see the people they follows posts where the liked page is for the posts a user has liked"
+
   ![Home/Feed/Liked pages full screen](https://imgur.com/Rsjtx6T.png)
   ![Home/Feed/Liked pages smaller screens](https://imgur.com/x2Wcb47.png)
 
   __Post Page__
+
+  - The Post page is linked to each post, it is also here a user cna comment on a post or answser to a comment if it is their own post. This is only possible for loggedin users. 
+  - The owner of the post can as well edit and delete a post on the post page.
 
   ![Post page](https://imgur.com/Av34rmg.png)
 
@@ -162,6 +168,11 @@ This site was created respecting the Five Planes of website design:
   <br>
 
   __Events Page__
+
+  - The Event page is only for logged in users. This is where a user can keep themselves up to date if any exisitng events are happening that they would like yo join.
+  - On the event page you can read more about the event if it has some content in it. 
+  - It is possible for all users to click to join the event also the owner of the event.
+  - It is though only the owner of the event that can edit and delete it.
 
   ![Events page](https://imgur.com/7GAXkEZ.png)
   ![Event page](https://imgur.com/bpqU7tV.png)
@@ -179,9 +190,16 @@ This site was created respecting the Five Planes of website design:
 
   __Ideas Page__
 
+  - The Ideas page is for the eyes of the profile owner only.
+  - Here they can add ideas for new DIY projects, edit and delete them.
+  - They can also make a todo list for one of these ideas so it can become a reality.
+
   ![Ideas page](https://imgur.com/0EZgGz6.png)
 
   __Profile__
+
+  - Every user have their own profile where tey can see their own post or another user scroll through the posts
+  - This page also tells you how many posts, how many followers, and how many they follow.
 
   ![Profile](https://imgur.com/40FMXMy.png)
 
@@ -204,8 +222,24 @@ This site was created respecting the Five Planes of website design:
 
   Profile
 
+  - The profile buttons are to edit items for the profile.
+
   ![Profile buttons](https://imgur.com/kYxL72e.png)
 
   CRUD
 
   ![CRUD buttons](https://imgur.com/JxbWAF8.png)
+
+## CRUD
+
+  __As a Visiting User:__
+
+  __As a Site User:__
+
+  - __CREATE__: 
+
+  - __READ__:
+
+  - __UPDATE__:
+
+  - __DELETE__:
