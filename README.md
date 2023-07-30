@@ -1,5 +1,7 @@
 # Craft|Hub Frontend
 
+![Am I Responsive](https://imgur.com/IbhZF4b.png)
+
 Welcome to Craft|Hub! This website was made for my last project with Code Institute for my React project. DIY is only getting bigger by the minute and that is what Craft|Hub is all about. To connect, share, inspire. Learn from others and share your own experinces. Follow your favorite users or your friends. Keep an eye out on events. Make your own list to never forget your DIY ideas and get started on them. Comment and like posts and be apart of community.
 
 [Link to live side on Heroku](https://craftconnect-6c932655ea4f.herokuapp.com/)
