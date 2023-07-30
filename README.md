@@ -365,3 +365,52 @@ This site was created respecting the Five Planes of website design:
 |Safari    |      ☑           |         ☑         |         ☑         |            ☑             |
 |Edge      |      ☑           |         ☑         |         ☑         |            ☑             |
 |Firefox   |      ☑           |         ☑         |         ☑         |            ☑             |
+
+## Deployment
+
+  ### Create the Heroku App:
+
+  - Log in on Heroku and then go to the Dashboard
+  - Click "__New__" and select then "__Create new app__" from the drop-down menu in Heroku
+  - Add a new unique app name (UNIQUE-NAME) and choose the relevant region
+  - Click the "__Create app__" button
+
+  ### Creating (ElephantSQL) the PostgreSQL database:'
+
+  - Log on to ElephantSQL
+  - Then click "__Create New Instance__"
+  - Set up a then plan by giving it a name and then select the "Tiny Turtle" for the free plan.
+  - Then click "__Select Region__" and choose the appropriate data centre which is the nearest by location
+  - Click "__Review__"
+  - Check over all details and then click "__Create Instance__"
+  - Back to the dashboard and click on the name of the newly created database
+  - Copy the database URL from the page from the details section
+
+  ### Create env.py file:
+
+  - You need to create env.py file, and then checking it is included in the .gitignore file
+  - Add then "__import os__" to env.py file at the top
+  - Set the environment variables
+
+  - For DATABASE_URL to the URL copied from ElephantSQL: os.environ["DATABASE_URL"]="<copiedURL>"
+  - Set SECRET_KEY variable can be any multiple letters from 20 +: os.environ["SECRET_KEY"]="MY_SECRET_KEY"
+  - Add any others that is needed as well
+
+  ### Connecting Cloudinary:
+
+  - Log on to Cloudinary
+  - From the Cloudinary dashboard, you copy the API Environment variable
+  - Add this to the env.py file: os.environ["CLOUDINARY_URL"] = "<COPIED_CARIABLE>"
+  - Then in the INSTALLED_APPS list of the settings.py file, above django.contrib.staticfiles you add: __'cloudinary_storage',__
+  - Then you add, below django.contrib.staticfiles: __'cloudinary',__
+  - Add to the settings.py, to make sure to define Cloudinary as the static file and media storage:
+
+    STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+  ### Add Heroku Config Vars:
+
+  ### First Deployment
+
+  ### Last Deployment
