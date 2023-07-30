@@ -230,16 +230,54 @@ This site was created respecting the Five Planes of website design:
 
   ![CRUD buttons](https://imgur.com/JxbWAF8.png)
 
-## CRUD
+  ### CRUD
 
   __As a Visiting User:__
+  - __READ__: 
+    - A visiting user I can view the posts as well as profiles of users.
 
   __As a Site User:__
 
-  - __CREATE__: 
+  - __CREATE__:
+    - As a user I have signed up and therefor have a profile.
+    - As a user I can create posts as well as comment on them.
+    - I can add all the events I know and join any I am intressted in.
+    - I have my own ideas page so I can remember and plan my next project. 
+
+    <br>
 
   - __READ__:
+    - As a user I can see all posts, and comments.
+    - I can look through the events and serch for them.
+    - I can read my own ideas.
+    - I can look through other users profiles.
+
+    <br>
 
   - __UPDATE__:
+    - As a user I can edit my own posts and comments.
+    - As a user I can edit my own events.
+    - As a user I can edit everything in my own ideas page.
+    - I can edit my own profile.
+
+    <br>
 
   - __DELETE__:
+    - Site users can delete any of their own posts or comments.
+    - I can delete my own events.
+    - As a site user I can delete everything on my ideas page.
+  
+  ### Other Features
+
+  - Infinite Scroll
+  - Error messages for creating a post, event, task.
+  - New Badge in events
+  
+  ![New Badge](https://imgur.com/6Sr3jgj.png)
+
+  ### Future Features
+
+  - A future feaute could be to be able to delete your profile again.
+  - Adding more then one image at a time maybe 3-4.
+  - Messages for when someone follow you, like or comments on your posts.
+  - Seeing users that follow you or who I liked your posts.
