@@ -114,3 +114,34 @@ This site was created respecting the Five Planes of website design:
   - User stories were written for each features on the side.
 
   - The user stories were then managed in a Kanban board, which was created inside the GitHub Projects.
+
+## Features
+
+  ### Existing Features
+
+  __Logo/Favicon__
+
+  ![Logo](https://imgur.com/EQ2WaP2.png)
+
+  __Navigation Bar__
+
+  Logged Out
+
+  ![Logged out nav bar full screen](https://imgur.com/vpdfkeJ.png)
+  ![Logged out nav bar smaller screens](https://imgur.com/ukUgfra.png)
+
+  Logged In
+
+  ![Logged in nav bar full screen](https://imgur.com/y6jnAiy.png)
+  ![Logged in nav bar smaller screens](https://imgur.com/dv9F9r6.png)
+  <details>
+    <summary>Logged in nav bar drop down</summary>
+    <a href="https://imgur.com/1auSce4"><img src="https://imgur.com/1auSce4.png" title="source: imgur.com" /></a>
+  </details>
+
+  <br>
+
+  __Home/Feed/Liked Pages__
+
+  ![Home/Feed/Liked pages full screen](https://imgur.com/Rsjtx6T.png)
+  ![Home/Feed/Liked pages smaller screens](https://imgur.com/x2Wcb47.png)
