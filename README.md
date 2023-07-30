@@ -145,3 +145,67 @@ This site was created respecting the Five Planes of website design:
 
   ![Home/Feed/Liked pages full screen](https://imgur.com/Rsjtx6T.png)
   ![Home/Feed/Liked pages smaller screens](https://imgur.com/x2Wcb47.png)
+
+  __Post Page__
+
+  ![Post page](https://imgur.com/Av34rmg.png)
+
+  <details>
+    <summary>Post create page</summary>
+    <a href="https://imgur.com/K2ZWwja"><img src="https://imgur.com/K2ZWwja.png" title="source: imgur.com" /></a>
+  </details>
+  <details>
+    <summary>Post edit page</summary>
+    <a href="https://imgur.com/n4PZ4JI"><img src="https://imgur.com/n4PZ4JI.png" title="source: imgur.com" /></a>
+  </details>
+
+  <br>
+
+  __Events Page__
+
+  ![Events page](https://imgur.com/7GAXkEZ.png)
+  ![Event page](https://imgur.com/bpqU7tV.png)
+
+  <details>
+    <summary>Events create page</summary>
+    <a href="https://imgur.com/LfDlC0Y"><img src="https://imgur.com/LfDlC0Y.png" title="source: imgur.com" /></a>
+  </details>
+  <details>
+    <summary>Events edit page</summary>
+    <a href="https://imgur.com/xUlsgk3"><img src="https://imgur.com/xUlsgk3.png" title="source: imgur.com" /></a>
+  </details>
+
+  <br>
+
+  __Ideas Page__
+
+  ![Ideas page](https://imgur.com/0EZgGz6.png)
+
+  __Profile__
+
+  ![Profile](https://imgur.com/40FMXMy.png)
+
+  <details>
+    <summary>Profile edit page</summary>
+    <a href="https://imgur.com/Mv3BwHT"><img src="https://imgur.com/Mv3BwHT.png" title="source: imgur.com" /></a>
+  </details>
+
+  __Auth Pages__
+
+  Login
+
+  ![Login page](https://imgur.com/aKSva0K.png)
+
+  Signup
+
+  ![Signup page](https://imgur.com/4tjlKr6.png)
+
+  __Buttons__
+
+  Profile
+
+  ![Profile buttons](https://imgur.com/kYxL72e.png)
+
+  CRUD
+
+  ![CRUD buttons](https://imgur.com/JxbWAF8.png)
