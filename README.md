@@ -395,7 +395,7 @@ This site was created respecting the Five Planes of website design:
 
   ## Manual Test Cases
 
-   - Navbar: As a user I can see the navbar on every page so that I can easily move around the app.
+  - Navbar: As a user I can see the navbar on every page so that I can easily move around the app.
 
   <details>
   <summary>Navbar</summary>
