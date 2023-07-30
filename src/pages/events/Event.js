@@ -145,11 +145,11 @@ const Event = (props) => {
         </Card.Title>}
         {description && <Card.Text className={`${eventsPage ? eventStyle.Description: ""} text-muted`}>{description}</Card.Text>}
         {start_date_time && <Card.Text className={`${eventStyle.EventFontSize} text-muted mb-0`}>
-          <i class="far fa-clock"></i>{start_date_time}</Card.Text>}
+          <i className="far fa-clock"></i>{start_date_time}</Card.Text>}
         {end_date_time && <Card.Text className={`${eventStyle.EventFontSize} text-muted mb-0`}>
-          <i class="far fa-clock"></i>{end_date_time}</Card.Text>}
+          <i className="far fa-clock"></i>{end_date_time}</Card.Text>}
         {location && <Card.Text className={`${eventStyle.EventFontSize} text-muted mb-0`}>
-          <i class="fas fa-map-marker-alt"></i>{location}</Card.Text>}
+          <i className="fas fa-map-marker-alt"></i>{location}</Card.Text>}
         {website_link && (
           <a href={website_link} className={eventStyle.WebsiteLink} target="_blank" rel="noopener noreferrer">
             <Card.Text className={`${eventStyle.EventFontSize} ${eventStyle.WebsiteLink} text-muted`}>
@@ -158,7 +158,7 @@ const Event = (props) => {
           </a>
         )}
         {cost && <Card.Text className={`${eventStyle.EventFontSize} text-right text-muted`}>
-          <i class="fas fa-euro-sign"></i>{cost}</Card.Text>}
+          <i className="fas fa-euro-sign"></i>{cost}</Card.Text>}
       </Card.Body>
       <Card.Footer>
         <small className="text-muted">Last updated {calculateTimeDifference()}</small>

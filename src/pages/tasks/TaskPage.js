@@ -68,9 +68,9 @@ function TaskPage() {
             {ideas.results.length ? (
               <InfiniteScroll
                 children={ideas.results.map((idea) => (
-                  <Container>
+                  <Col key={idea.id}>
                     <Idea key={idea.id} id={idea.id} {...idea} setIdeas={setIdeas} />
-                  </Container>
+                  </Col>
                 ))}
                 dataLength={ideas.results.length}
                 loader={<Asset spinner />}
@@ -101,9 +101,9 @@ function TaskPage() {
         ) : null}
         {tasks.results.length ? (
           <InfiniteScroll
-            children={tasks.results.map((tasks) => (
-              <Col key={tasks.id} lg={4} className={`${taskStyles.TodoCard}`}>
-                <Task {...tasks} setTasks={setTasks} />
+            children={tasks.results.map((task) => (
+              <Col key={task.id} lg={4} className={`${taskStyles.TodoCard}`}>
+                <Task {...task} setTasks={setTasks} />
               </Col>
             ))}
             dataLength={tasks.results.length}
