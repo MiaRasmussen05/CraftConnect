@@ -32,7 +32,7 @@ function TaskPage() {
         ]);
         setIdeas(ideas);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 
@@ -46,7 +46,7 @@ function TaskPage() {
         const tasksData = response.data;
         setTasks(tasksData);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
   

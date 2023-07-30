@@ -23,7 +23,7 @@ const Task = (props) => {
         results: prevTasks.results.filter((tasks) => tasks.id !== id),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

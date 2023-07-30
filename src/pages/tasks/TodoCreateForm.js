@@ -32,7 +32,7 @@ function TodoCreateForm(props) {
         results: [newContent, ...prevContent.results],
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

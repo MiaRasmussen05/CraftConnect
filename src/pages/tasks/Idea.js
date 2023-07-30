@@ -22,7 +22,7 @@ const Idea = (props) => {
         results: prevIdeas.results.filter((idea) => idea.id !== id),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
