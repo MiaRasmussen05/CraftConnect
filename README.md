@@ -37,6 +37,7 @@ Welcome to Craft|Hub! This website was made for my last project with Code Instit
 [Technology](#technology)
 - [Languages Used](#languages-used)
 - [Libraries and Programs Used](#libraries-and-programs-used)
+- [Components](#components)
 
 [Testing](#testing)
 - [Automated Testing](#automated-testing)
@@ -281,3 +282,43 @@ This site was created respecting the Five Planes of website design:
   - Adding more then one image at a time maybe 3-4.
   - Messages for when someone follow you, like or comments on your posts.
   - Seeing users that follow you or who I liked your posts.
+
+## Technology
+
+  ### Languages Used
+
+  - HTML
+  - CSS
+  - JavaScript
+  - SQL (Postgres)
+
+  ### Libraries and Programs Used
+
+  - __Github__: Was used to store the project code and display the project in GitHub Pages.
+  - __Git__: Was used for version control, the Gitpod terminal to commit and push to GitHub.
+  - __Heroku__: Where used for site Deployment.
+  - __Cloudinary__: WHere used for serving static media files.
+  - __ElephantSQL__: Used for PostgreSQL database hosting.
+  - __React.js__: Used for Front-end application.
+  - __React-Bootstrap__: Where used for CSS styling library.
+  - __Google Chrome, Microsoft Edge, Mozilla Firefox, Safari__: Where all used for site testing - on alternative browsers.
+  - __Google Dev Tools__: Were used to test and troubleshoot the webpage as well as fix problems with responsive design and styling.
+  - __Figma__: Was used to create the wireframes.
+  - __Am I Responsive__: Used for takking a screenshots of the final project for the README.
+  - __Lucid Charts__: For planning the site process with a flow diagram.
+  - __Font Awesome__: To add icons to the site.
+  - __Favicon__: For creating the favicon.
+  - __Jwt-decode__: Used to decode and extract information from a JWT token.
+  - __Axios__: Promise based HTTP client for the browser and node.js. Used to make HTTP requests from throughout the application.
+  - __Shields__: Was used to add different shields into the README.
+
+ ### Components
+
+  Several of the components have been reused throughout this project:
+
+  - AxiosDefault.js: For ease of communication with the backend API.
+  - Asset.js: To supply the loading spinner throughout the site.
+  - MoreDropdown.js: To allow users to edit/delete their posts, events ideas, tasks and edit things on their profile.
+  - CurrentUserContext.js: To confirm that a user is logged-in and to determine what functionality is available to that user.
+  - UseRedirect.js: Redirects the user to another page if they are not authorised to be on the page they are trying to access.
+  - Utils.js: Supplies functionality to all of the components that uses the Infinite Scroll.
