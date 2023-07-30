@@ -92,13 +92,55 @@ This site was created respecting the Five Planes of website design:
 
 ## Structure
   
-  __Site Navigation FLowchart__
+  - The Craft|Hub website is interactive, both for non registered, non logged-in users and for users signed into their account. 
+  - It depends on login status on what they can see though. When the user is logged out the pages: Home, and Sign In/Up are available from the Navbar they can also see user profiles but only the most popular once. 
+  - When the user is logged in Feed, Liked, Events, Ideas, Signout and Profile Page also become available to the user, here they can also like and comment on posts.
 
 ## Skeleton
 
-  #### __Wireframes
+  #### __Wireframes__
 
-  #### __Databases
+  <details>
+  <summary>Wireframes Home/Feed/Liked pages</summary>
+  <a href="https://imgur.com/zS09DNP"><img src="https://imgur.com/zS09DNP.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
+  <details>
+  <summary>Wireframes Event Page</summary>
+  <a href="https://imgur.com/PutFPOd"><img src="https://imgur.com/PutFPOd.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
+  <details>
+  <summary>Wireframes Ideas Page</summary>
+  <a href="https://imgur.com/2knOzi8"><img src="https://imgur.com/2knOzi8.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
+  <details>
+  <summary>Wireframes Profiles</summary>
+  <a href="https://imgur.com/LGoFbt3"><img src="https://imgur.com/LGoFbt3.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
+  <details>
+  <summary>Wireframes Login Page</summary>
+  <a href="https://imgur.com/hXWTb1m"><img src="https://imgur.com/hXWTb1m.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
+  <details>
+  <summary>Wireframes Signup Page</summary>
+  <a href="https://imgur.com/WIEmkTY"><img src="https://imgur.com/WIEmkTY.png" title="source: imgur.com" /></a>
+  </details>
+  <br>
+
+  ### __Databases__
+
+  Data normalisation to structure each model to help reduce data redundancy and improve data integrity. This was used after setting out all of the information required for the site.
+
+  ![Databases](https://imgur.com/LlYfNNi.png)
 
 ## Surface
 
@@ -106,9 +148,16 @@ This site was created respecting the Five Planes of website design:
 
   #### __Typography__
 
+  I went for the already used font style "DM Sans" from the walkthrough to be my sites font, with a secondary font of 'sans-serif'. I did this to keep the writing easy to read and to fit with the minimalistic classic style of the site. 
+
   #### __Color Scheme__
 
-## Agile Methodology
+  I went for minimalistic color scheme with teal for the main color that is used to show buttons and some backgrounds to make all of these easily distinguishable. I choose teal because it represent creativity.
+    The color pallet was made with [Coolors](https://coolors.co/).
+
+  ![Color scheme](https://imgur.com/1IoJVS9.png)
+
+# Agile Methodology
 
   An Agile approach was taken for the management of this project.
 
@@ -116,9 +165,9 @@ This site was created respecting the Five Planes of website design:
 
   - The user stories were then managed in a Kanban board, which was created inside the GitHub Projects.
 
-## Features
+# Features
 
-  ### Existing Features
+  ## Existing Features
 
   __Logo/Favicon__
 
@@ -231,7 +280,7 @@ This site was created respecting the Five Planes of website design:
 
   ![CRUD buttons](https://imgur.com/JxbWAF8.png)
 
-  ### CRUD
+  ## CRUD
 
   __As a Visiting User:__
   - __READ__: 
@@ -268,7 +317,7 @@ This site was created respecting the Five Planes of website design:
     - I can delete my own events.
     - As a site user I can delete everything on my ideas page.
   
-  ### Other Features
+  ## Other Features
 
   - Infinite Scroll
   - Error messages for creating a post, event, task.
@@ -276,14 +325,14 @@ This site was created respecting the Five Planes of website design:
   
   ![New Badge](https://imgur.com/6Sr3jgj.png)
 
-  ### Future Features
+  ## Future Features
 
   - A future feaute could be to be able to delete your profile again.
   - Adding more then one image at a time maybe 3-4.
   - Messages for when someone follow you, like or comments on your posts.
   - Seeing users that follow you or who I liked your posts.
 
-## Technology
+# Technology
 
   ### Languages Used
 
@@ -305,14 +354,13 @@ This site was created respecting the Five Planes of website design:
   - __Google Dev Tools__: Were used to test and troubleshoot the webpage as well as fix problems with responsive design and styling.
   - __Figma__: Was used to create the wireframes.
   - __Am I Responsive__: Used for takking a screenshots of the final project for the README.
-  - __Lucid Charts__: For planning the site process with a flow diagram.
   - __Font Awesome__: To add icons to the site.
   - __Favicon__: For creating the favicon.
   - __Jwt-decode__: Used to decode and extract information from a JWT token.
   - __Axios__: Promise based HTTP client for the browser and node.js. Used to make HTTP requests from throughout the application.
   - __Shields__: Was used to add different shields into the README.
 
- ### Components
+ ## Components
 
   Several of the components have been reused throughout this project:
 
@@ -323,11 +371,11 @@ This site was created respecting the Five Planes of website design:
   - UseRedirect.js: Redirects the user to another page if they are not authorised to be on the page they are trying to access.
   - Utils.js: Supplies functionality to all of the components that uses the Infinite Scroll.
 
-## Testing
+# Testing
 
-  ### Automated Testing
-  ### Manual Test Cases
-  ### Code Validation
+  ## Automated Testing
+  ## Manual Test Cases
+  ## Code Validation
 
   - CSS: No errors were found when passing any of the css files through the official W3C CSS validator. ANd the 4 warnings found was from the change to the scrollbar.
 
@@ -345,7 +393,7 @@ This site was created respecting the Five Planes of website design:
     8. 'spread operator' is only available in ES6 (use 'esversion: 6').
     9. 'async functions' is only available in ES8 (use 'esversion: 8').
 
-  ### Debugging
+  ## Debugging
 
   Most Bugs were gone after 5 minutes or replaced but these 2 took me quite a bit to figure out and then fix.
 
@@ -353,11 +401,11 @@ This site was created respecting the Five Planes of website design:
 
   - The second was everything in my ideas page would not load, edit or delete before updating the whole page. This took a long time finding out that I had missid adding setIdeas={setIdeas} on to all the imported forms on my taskspage. 
 
-  ### Unfixed Bugs
+  ## Unfixed Bugs
 
   - A bug I could not figure out how to fix in time was the fact that when yo go to edit an event you to write the dates in again. I did find a way so this would not happen but then every time you would edit it, the dates would have counted down with one day and you would have to update them again.
 
-  ### Test on Different Browsers and Screen Sizes
+  ## Test on Different Browsers and Screen Sizes
 
   |   Tests   |   Small (≥576px) |  Medium (≥768px)   |   Large (≥992px)   |   Functionality (Pass)   |
 |----------|:----------------:|:------------------:|:------------------:|:------------------------:|
@@ -366,16 +414,16 @@ This site was created respecting the Five Planes of website design:
 |Edge      |      ☑           |         ☑         |         ☑         |            ☑             |
 |Firefox   |      ☑           |         ☑         |         ☑         |            ☑             |
 
-## Deployment
+# Deployment
 
-  ### Create the Heroku App:
+  ## Create the Heroku App:
 
   - Log in on Heroku and then go to the Dashboard
   - Click "__New__" and select then "__Create new app__" from the drop-down menu in Heroku
   - Add a new unique app name (UNIQUE-NAME) and choose the relevant region
   - Click the "__Create app__" button
 
-  ### Creating (ElephantSQL) the PostgreSQL database:'
+  ## Creating (ElephantSQL) the PostgreSQL database:'
 
   - Log on to ElephantSQL
   - Then click "__Create New Instance__"
@@ -386,7 +434,7 @@ This site was created respecting the Five Planes of website design:
   - Back to the dashboard and click on the name of the newly created database
   - Copy the database URL from the page from the details section
 
-  ### Create env.py file:
+  ## Create env.py file:
 
   - You need to create env.py file, and then checking it is included in the .gitignore file
   - Add then "__import os__" to env.py file at the top
@@ -396,7 +444,7 @@ This site was created respecting the Five Planes of website design:
   - Set SECRET_KEY variable can be any multiple letters from 20 +: os.environ["SECRET_KEY"]="MY_SECRET_KEY"
   - Add any others that is needed as well
 
-  ### Connecting Cloudinary:
+  ## Connecting Cloudinary:
 
   - Log on to Cloudinary
   - From the Cloudinary dashboard, you copy the API Environment variable
@@ -409,7 +457,7 @@ This site was created respecting the Five Planes of website design:
 
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-  ### Add Heroku Config Vars:
+  ## Add Heroku Config Vars:
 
   - In Heroku dashboard you need to add a few things 
   - Go to settings tab on Heroku
@@ -422,7 +470,7 @@ This site was created respecting the Five Planes of website design:
     5. CLOUDINARY_URL (value "<COPIED_CARIABLE>")
     6. And any other Config Vars you will need 
 
-  ### First Deployment
+  ## First Deployment
 
   This project was deployed on Heroku using Code Institute's walkthrough videos. After creating the GitHub repository, the steps taken to create the Heroku App were as follows:
 
@@ -438,7 +486,7 @@ This site was created respecting the Five Planes of website design:
   - Go to 'Manual Deploy' section and click 'Deploy Branch'.
   - Click 'Open App' button to view newly deployed app.
 
-  ### Last Deployment
+  ## Last Deployment
 
   - Add the Procfile at the root of the project.
   - Committed all finalised code and pushed to Github repositories.
@@ -447,9 +495,9 @@ This site was created respecting the Five Planes of website design:
   - Click the "Open App" button.
   - Just to make sure it matches the development version, then test the final deployed version of the app.
 
-## Credits
+# Credits
 
-  ### Resources Used
+  ## Resources Used
 
   - Code Institutes 'Django Rest Framework Walkthrough Videos'
   - Code Institutes 'Moments Walkthrough Videos'
@@ -458,11 +506,11 @@ This site was created respecting the Five Planes of website design:
   - Stack Overflow for enquiries relating to React.js.
   - Slack
 
-  ### Content
+  ## Content
     
   - All images, logo, and text have been made and written by me, this does not include post by other people and event information.
 
-  ### Honourable mentions
+  ## Honourable mentions
 
   - My mentor Rohit for the support and helping me understand what I needed to do.
   - All my favorite people that have gone through and tested my site whenever I asked.
