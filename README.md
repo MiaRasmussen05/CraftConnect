@@ -322,3 +322,46 @@ This site was created respecting the Five Planes of website design:
   - CurrentUserContext.js: To confirm that a user is logged-in and to determine what functionality is available to that user.
   - UseRedirect.js: Redirects the user to another page if they are not authorised to be on the page they are trying to access.
   - Utils.js: Supplies functionality to all of the components that uses the Infinite Scroll.
+
+## Testing
+
+  ### Automated Testing
+  ### Manual Test Cases
+  ### Code Validation
+
+  - CSS: No errors were found when passing any of the css files through the official W3C CSS validator. ANd the 4 warnings found was from the change to the scrollbar.
+
+  ![W3C Validator](https://imgur.com/JcVmyQd.png)
+
+  - JSHint: The following warnings were raised, and have been intentionally ignored as they are in relation to later version of ES:
+
+    1. 'const' is available in ES6 (use 'esversion: 6').
+    2. 'import' is only available in ES6 (use 'esversion: 6').
+    3. Unclosed regular expression.
+    4. 	'Optional chaining' is only available in ES11 (use 'esversion: 11').
+    5. 'export' is only available in ES6 (use 'esversion: 6').
+    6. 'destructuring binding' is available in ES6 (use 'esversion: 6').
+    7. 	'arrow function syntax (=>)' is only available in ES6 (use 'esversion: 6').
+    8. 'spread operator' is only available in ES6 (use 'esversion: 6').
+    9. 'async functions' is only available in ES8 (use 'esversion: 8').
+
+  ### Debugging
+
+  Most Bugs were gone after 5 minutes or replaced but these 2 took me quite a bit to figure out and then fix.
+
+  - One of the bugs happened every time I would try and log in, everything would turn white and I had to update to go back to the login page. This had something to do with the fact I hadn't updated the CLIENT_ORIGIN and CLIENT_ORIGIN_DEV in my Config Vars on Heroku so my deployed page could not work with my backend.
+
+  - The second was everything in my ideas page would not load, edit or delete before updating the whole page. This took a long time finding out that I had missid adding setIdeas={setIdeas} on to all the imported forms on my taskspage. 
+
+  ### Unfixed Bugs
+
+  - A bug I could not figure out how to fix in time was the fact that when yo go to edit an event you to write the dates in again. I did find a way so this would not happen but then every time you would edit it, the dates would have counted down with one day and you would have to update them again.
+
+  ### Test on Different Browsers and Screen Sizes
+
+  |   Tests   |   Small (≥576px) |  Medium (≥768px)   |   Large (≥992px)   |   Functionality (Pass)   |
+|----------|:----------------:|:------------------:|:------------------:|:------------------------:|
+|Chrome    |      ☑           |         ☑         |         ☑         |            ☑             |
+|Safari    |      ☑           |         ☑         |         ☑         |            ☑             |
+|Edge      |      ☑           |         ☑         |         ☑         |            ☑             |
+|Firefox   |      ☑           |         ☑         |         ☑         |            ☑             |
