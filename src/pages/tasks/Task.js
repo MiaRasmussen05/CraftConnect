@@ -46,6 +46,9 @@ const Task = (props) => {
               <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
             )}</Card.Title>
           )}
+          <hr />
+          <p>Task list does not work at the moment!</p>
+          <p>It is coming soon!</p>
         </Card.Body>
       </Card>
   );

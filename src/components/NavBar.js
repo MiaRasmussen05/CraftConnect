@@ -36,7 +36,7 @@ const NavBar = () => {
       <NavLink
         className={`${styles.NavLink} d-md-none`}
         to={`/profiles/${currentUser?.profile_id}`}
-      ><i class="fas fa-user"></i> Profiles
+      ><i className="fas fa-user"></i> Profiles
       </NavLink>
       <NavLink className={`${styles.NavLink} d-md-none`}
         activeClassName={styles.Active} to="/feed"
@@ -53,13 +53,13 @@ const NavBar = () => {
         className={`${styles.NavLink} d-md-none`}
         activeClassName={styles.Active} to="/tasks"
       >
-        <i class="fas fa-list-ul"></i>Tasks
+        <i className="fas fa-list-ul"></i>Tasks
       </NavLink>
       <NavLink
         className={`${styles.NavLink} d-md-none`}
         activeClassName={styles.Active} to="/events"
       >
-        <i class="fas fa-calendar-alt"></i>Events
+        <i className="fas fa-calendar-alt"></i>Events
       </NavLink>
       <NavDropdown.Divider />
       <NavLink className={`${styles.NavLink} d-md-none mt-5`} to="/" onClick={handleSignOut}>
@@ -68,15 +68,15 @@ const NavBar = () => {
 
       <NavDropdown title={<Avatar src={currentUser?.profile_image} text="Profile" height={40} />} className="d-none d-md-block" id="basic-nav-dropdown">
         <NavDropdown.Item className={styles.NavLink}
-        href={`/profiles/${currentUser?.profile_id}`}><i class="fas fa-user"></i> Profile</NavDropdown.Item>
+        href={`/profiles/${currentUser?.profile_id}`}><i className="fas fa-user"></i> Profile</NavDropdown.Item>
         <NavDropdown.Item className={styles.NavLink}
         activeClassName={styles.Active} href="/feed"><i className="fas fa-stream"></i> Feed</NavDropdown.Item>
         <NavDropdown.Item className={styles.NavLink}
         activeClassName={styles.Active} href="/liked"><i className="fas fa-heart"></i> Liked</NavDropdown.Item>
         <NavDropdown.Item className={styles.NavLink}
-        activeClassName={styles.Active} href="/events"><i class="fas fa-calendar-alt"></i> Events</NavDropdown.Item>
+        activeClassName={styles.Active} href="/events"><i className="fas fa-calendar-alt"></i> Events</NavDropdown.Item>
         <NavDropdown.Item className={styles.NavLink}
-        activeClassName={styles.Active} href="/tasks"><i class="fas fa-list-ul"></i> Ideas</NavDropdown.Item>
+        activeClassName={styles.Active} href="/tasks"><i className="fas fa-list-ul"></i> Ideas</NavDropdown.Item>
         <NavDropdown.Divider />
         <NavDropdown.Item className={`${styles.NavLink} mt-5`}>
           <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>

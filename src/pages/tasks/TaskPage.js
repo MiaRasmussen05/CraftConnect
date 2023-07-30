@@ -51,7 +51,7 @@ function TaskPage() {
     };
   
     fetchTasks();
-  }, [id]);
+  }, [id, title]);
 
   return (
     <Container>
